@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:e_commerce/data/dbHelper.dart';
 import 'package:e_commerce/model/shopping_cart_model.dart';
 import 'package:e_commerce/screens/categories/categories_screen.dart';
@@ -32,15 +34,12 @@ class CategoriDetail extends StatefulWidget {
 class _CategoriDetailState extends State<CategoriDetail> {
   var dbHelper = DbHelper();
   bool _isfavorite = false;
-  int _favoriteCount = 0;
 
   void _toggleFavorite() {
     setState(() {
       if (_isfavorite) {
-        _favoriteCount -= 1;
         _isfavorite = false;
       } else {
-        _favoriteCount += 1;
         _isfavorite = true;
         Navigator.of(context).pop();
       }
@@ -60,13 +59,10 @@ class _CategoriDetailState extends State<CategoriDetail> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 29.0),
-                  //geri_button
                   returnButton(context),
                   const SizedBox(height: 24.0),
-                  // product name and favorite icon
                   buildBanner(),
                   const SizedBox(height: 16.0),
-                  //içerik
                   Expanded(
                     child: ListView(
                       children: [
@@ -283,52 +279,54 @@ class _CategoriDetailState extends State<CategoriDetail> {
   }
 
   void addCart() async {
-    var result = await dbHelper.insert(
-      Cart(
-        name: widget.productName,
-        description: widget.featuresTitle,
-        photo: widget.photoUrl,
-        unitPrice: double.tryParse(widget.price.toString()),
-      ),
-    );
-
-    showDialog(
-      context: context,
-      builder: (context) => CupertinoAlertDialog(
-        title: const Text(
-          'INFORMATION',
-        ),
-        content: const Text(
-          'This product has been added to the cart! \n Would you like to go to cart ?',
-        ),
-        actions: [
-          CupertinoDialogAction(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ShoppingCartPage(),
-                ),
-              );
-            },
-            child: const Text(
-              'Yes',
-            ),
+    var result = await dbHelper
+        .insert(
+          Cart(
+            name: widget.productName,
+            description: widget.featuresTitle,
+            photo: widget.photoUrl,
+            unitPrice: double.tryParse(widget.price.toString()),
           ),
-          CupertinoDialogAction(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CategoriPage(),
+        )
+        .then(
+          (value) => showDialog(
+            context: context,
+            builder: (context) => CupertinoAlertDialog(
+              title: const Text(
+                'INFORMATION',
               ),
-            ),
-            child: const Text(
-              'No',
+              content: const Text(
+                'This product has been added to the cart! \n Would you like to go to cart ?',
+              ),
+              actions: [
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ShoppingCartPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Yes',
+                  ),
+                ),
+                CupertinoDialogAction(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CategoriPage(),
+                    ),
+                  ),
+                  child: const Text(
+                    'No',
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
-    );
+        );
   }
 }

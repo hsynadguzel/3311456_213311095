@@ -1,3 +1,5 @@
+// ignore_for_file: missing_required_param
+
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/constant/bottom_nav_bar.dart';
@@ -49,10 +51,8 @@ class _PersonPageState extends State<PersonPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 29.0),
-                  // geri_button
                   returnButton(context),
                   const SizedBox(height: 24.0),
-                  // sayfa basligi
                   buildPageTitle('Person'),
                   const SizedBox(height: 18.0),
                   Expanded(
@@ -212,7 +212,7 @@ class _PersonPageState extends State<PersonPage> {
             ),
           ],
         ),
-        QrImage(
+        QrImageView(
           data:
               '${userInfo.email.toString()}\n${userInfo.name.toString()}\n${userInfo.surname.toString()}',
           size: 80.0,
@@ -222,7 +222,6 @@ class _PersonPageState extends State<PersonPage> {
     );
   }
 
-  // sayfa basligi
   Text buildPageTitle(String title) {
     return Text(
       title,
@@ -234,7 +233,6 @@ class _PersonPageState extends State<PersonPage> {
     );
   }
 
-  // geri buttonu
   GestureDetector returnButton(BuildContext context) {
     return GestureDetector(
       onTap: () {

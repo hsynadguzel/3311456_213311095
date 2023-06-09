@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:e_commerce/screens/home/home_screen.dart';
 import 'package:e_commerce/screens/user_operations/register_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,31 +33,33 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.transparent,
         body: Center(
           child: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.all(18.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 30.0),
-                      loginPageIcon(),
-                      const SizedBox(height: 50.0),
-                      helloAgainText(),
-                      const SizedBox(height: 50.0),
-                      emailField(),
-                      const SizedBox(height: 10.0),
-                      passwordField(),
-                      const SizedBox(height: 20.0),
-                      loginButton(),
-                      const SizedBox(height: 30.0),
-                      registerNowText(),
-                    ],
+            child: FadeInLeft(
+              child: Container(
+                margin: const EdgeInsets.all(18.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 30.0),
+                        loginPageIcon(),
+                        const SizedBox(height: 50.0),
+                        helloAgainText(),
+                        const SizedBox(height: 50.0),
+                        emailField(),
+                        const SizedBox(height: 10.0),
+                        passwordField(),
+                        const SizedBox(height: 20.0),
+                        loginButton(),
+                        const SizedBox(height: 30.0),
+                        registerNowText(),
+                      ],
+                    ),
                   ),
                 ),
               ),

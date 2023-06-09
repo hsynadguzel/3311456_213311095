@@ -1,4 +1,3 @@
-import 'package:e_commerce/screens/home/home_screen.dart';
 import 'package:e_commerce/screens/user_operations/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,17 +11,18 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    super.initState();
     _buildSplash();
+    super.initState();
   }
 
   void _buildSplash() async {
     await Future.delayed(
       const Duration(milliseconds: 2000),
-    );
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+    ).then(
+      (value) => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      ),
     );
   }
 

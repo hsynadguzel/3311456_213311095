@@ -20,8 +20,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: const Color(0xfffdfeff),
       body: SafeArea(
@@ -30,9 +28,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Baslik
               buildBaslik('Home'),
-              // Banner
               buildBanner(),
               // Buttonlar
               Padding(
@@ -70,12 +66,10 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 20.0, // 40.0
               ),
-              // ShowCase text
               showCaseText(),
               const SizedBox(
                 height: 10.0, // 16.0
               ),
-              // ShowCase item
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5.0),
@@ -94,7 +88,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              //const SizedBox(height: 15.0),
             ],
           ),
         ),

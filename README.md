@@ -1,6 +1,16 @@
-# AYAS MOBIL APP (E-COMMERCE)
+# e_commerce
 
-WEB: https://hsynadguzel.github.io/ayasweb/#/
+A new Flutter project.
 
-## 3311456_213311095 - MOBİL PROGRAMMING LESSON PROJECT 
-![e_commerce](https://user-images.githubusercontent.com/98910348/215598062-3c05cd7f-fdf2-452f-b3a9-7234c66cc931.jpg)
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

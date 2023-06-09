@@ -1,9 +1,9 @@
 class Cart {
   int? id;
-  String? name; // isim
-  String? description; // ürün tanım
+  String? name;
+  String? description;
   String? photo;
-  double? unitPrice; // birim fiyat
+  double? unitPrice;
 
   Cart({this.name, this.description, this.photo, this.unitPrice});
   Cart.withID(

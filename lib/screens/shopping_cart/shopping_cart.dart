@@ -26,6 +26,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
         productCount = data.length;
       });
     });
+    super.initState();
   }
 
   @override
@@ -38,15 +39,12 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 29.0),
-              // geri_button
               returnButton(context),
               const SizedBox(height: 24.0),
-              // sayfa basligi
               buildPageTitle('Cart'),
               const SizedBox(height: 16.0),
-              // cart veritabanındaki ürünler
               productCount == 0
-                  ? buildBodyNull(context) // listede ürün yoksa
+                  ? buildBodyNull(context)
                   : Expanded(
                       child: ListView.builder(
                         itemCount: productCount,
@@ -72,7 +70,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                     ),
               const SizedBox(height: 10.0),
-              // satın alma buttonu
               buyingButton(context),
               const SizedBox(height: 10.0),
             ],
@@ -82,7 +79,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 
-  // listede ürün yoksa çalşacak gövde
   Expanded buildBodyNull(BuildContext context) {
     return Expanded(
       child: Center(
@@ -109,7 +105,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 
-  // satın alma buttonu - buying button
   GestureDetector buyingButton(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -200,7 +195,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 
-  // sayfa basligi
   Text buildPageTitle(String title) {
     return Text(
       title,
@@ -212,7 +206,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 
-  // geri buttonu
   GestureDetector returnButton(BuildContext context) {
     return GestureDetector(
       onTap: () {

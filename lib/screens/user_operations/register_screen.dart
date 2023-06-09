@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:e_commerce/screens/user_operations/login_screen.dart';
 import 'package:e_commerce/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -36,34 +37,36 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Colors.transparent,
         body: Center(
             child: SingleChildScrollView(
-          child: Container(
-            margin: const EdgeInsets.all(18.0),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    registerPageIcon(),
-                    const SizedBox(height: 28.0),
-                    firstNameField(),
-                    const SizedBox(height: 12.0),
-                    lastNameField(),
-                    const SizedBox(height: 12.0),
-                    emailField(),
-                    const SizedBox(height: 12.0),
-                    passwordField(),
-                    const SizedBox(height: 12.0),
-                    confirmPasswordField(),
-                    const SizedBox(height: 18.0),
-                    registerButton(),
-                    const SizedBox(height: 18.0),
-                    noteText()
-                  ],
+          child: FadeInRight(
+            child: Container(
+              margin: const EdgeInsets.all(18.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      registerPageIcon(),
+                      const SizedBox(height: 28.0),
+                      firstNameField(),
+                      const SizedBox(height: 12.0),
+                      lastNameField(),
+                      const SizedBox(height: 12.0),
+                      emailField(),
+                      const SizedBox(height: 12.0),
+                      passwordField(),
+                      const SizedBox(height: 12.0),
+                      confirmPasswordField(),
+                      const SizedBox(height: 18.0),
+                      registerButton(),
+                      const SizedBox(height: 18.0),
+                      noteText()
+                    ],
+                  ),
                 ),
               ),
             ),

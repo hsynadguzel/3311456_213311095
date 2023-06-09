@@ -27,13 +27,10 @@ class _CategoriPageState extends State<CategoriPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 29.0),
-                  // geri_button
                   returnButton(context),
                   const SizedBox(height: 24.0),
-                  // sayfa basligi
                   buildPageTitle('Products'),
                   const SizedBox(height: 16.0),
-                  //categories
                   categoriListWidget(),
                   const SizedBox(height: 10.0),
                 ],
@@ -46,7 +43,6 @@ class _CategoriPageState extends State<CategoriPage> {
     );
   }
 
-  // liste içeriği
   Expanded categoriListWidget() {
     return Expanded(
       child: Padding(
@@ -72,7 +68,6 @@ class _CategoriPageState extends State<CategoriPage> {
     );
   }
 
-  // sayfa basligi
   Text buildPageTitle(String title) {
     return Text(
       title,
@@ -84,7 +79,6 @@ class _CategoriPageState extends State<CategoriPage> {
     );
   }
 
-  // geri buttonu
   GestureDetector returnButton(BuildContext context) {
     return GestureDetector(
       onTap: () {

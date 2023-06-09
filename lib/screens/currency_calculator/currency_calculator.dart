@@ -1,4 +1,5 @@
 import 'package:e_commerce/constant/bottom_nav_bar.dart';
+import 'package:e_commerce/screens/grafik/grafik.dart';
 import 'package:e_commerce/screens/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,8 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 29.0),
-                  // geri_button
                   returnButton(context),
                   const SizedBox(height: 24.0),
-                  // sayfa basligi
                   buildPageTitle('Currency Calculator'),
                   const SizedBox(height: 16.0),
                   Form(
@@ -41,30 +40,22 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
                     child: Expanded(
                       child: ListView(
                         children: [
-                          // miktarı girin - adet text
                           textfieldTitle('Enter Amount:'),
                           const SizedBox(height: 5.0),
-                          // adet textfield
                           buildAdetTextfield('Adet', TextInputAction.next),
                           const SizedBox(height: 10.0),
-                          // şu an ki para birimi text
                           textfieldTitle('Valid Currency:'),
                           const SizedBox(height: 5.0),
-                          // birim textfield
                           buildBirimTextfield(
                               TextInputAction.next, firstBirimController),
                           const SizedBox(height: 10.0),
-                          // dönüştürülecek para birimi text
                           textfieldTitle('The Unit You Want to Convert:'),
                           const SizedBox(height: 5.0),
-                          // birim textfield
                           buildBirimTextfield(
                               TextInputAction.done, secondBirimController),
                           const SizedBox(height: 20.0),
-                          // hesapla button
                           buildHesaplaButton(),
                           const SizedBox(height: 20.0),
-                          // aydınlatma metni texti
                           buildLightingText(),
                           const SizedBox(height: 10.0),
                         ],
@@ -81,7 +72,6 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     );
   }
 
-  // aydınlatma metni
   RichText buildLightingText() {
     return RichText(
       textAlign: TextAlign.justify,
@@ -103,7 +93,6 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     );
   }
 
-  // hesapla fonksiyonu
   String calculateFunction() {
     int adet = int.parse(adetController.text);
     double firstBirim = double.parse(firstBirimController.text);
@@ -113,7 +102,6 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     return sonuc;
   }
 
-  // hesapla buttonu
   Center buildHesaplaButton() {
     return Center(
       child: OutlinedButton(
@@ -169,7 +157,6 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     );
   }
 
-  // birimlerin textfieldı
   TextFormField buildBirimTextfield(
       TextInputAction? textinputaction, TextEditingController? controller) {
     return TextFormField(
@@ -195,7 +182,6 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     );
   }
 
-  // Adet textfieldı
   TextFormField buildAdetTextfield(
       String? hinttext, TextInputAction? textinputaction) {
     return TextFormField(
@@ -221,25 +207,38 @@ class _CurrencyCalculatorPageState extends State<CurrencyCalculatorPage> {
     );
   }
 
-  // textfield başlıkları
   Text textfieldTitle(String? title) => Text(
         title!,
         style: const TextStyle(fontSize: 16.0),
       );
 
-  // sayfa basligi
-  Text buildPageTitle(String title) {
-    return Text(
-      title,
-      style: const TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: Color(0xff0a1034),
-      ),
+  Row buildPageTitle(String title) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Color(0xff0a1034),
+          ),
+        ),
+        IconButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => GrafikScreen()),
+          ),
+          icon: Icon(
+            Icons.auto_graph_outlined,
+            color: Colors.blue[800],
+            size: 30,
+          ),
+        ),
+      ],
     );
   }
 
-// geri buttonu
   GestureDetector returnButton(BuildContext context) {
     return GestureDetector(
       onTap: () {
